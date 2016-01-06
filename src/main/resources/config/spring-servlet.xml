@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/task   
+   		http://www.springframework.org/schema/task/spring-task-3.0.xsd
+		">
+		
+	<description>Spring-web MVC配置</description>
+	
+	<!--
+		1、mvc 的只扫描controller组件 注意使用 use-default-filters="false"
+		如果不设置use-default-filters="false"，则Spring会扫描并优先注册默认的bean（当然包括标记为@Service的bean），
+		这样，标记为@Transactional的service由于transaction manager尚未注册而未能生效，导致事务管理失效。
+		其他的在 applicationContext.xml 扫描 除去 类型是Controller的。
+		<context:component-scan base-package="mvc.ctrl" />扫描全部
+	-->
+	<context:component-scan base-package="com.shirman.keepeating.rest.ctrl" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	
+	<!-- 防止请求或响应乱码的配置, 确保其添加在mvc:annotation-driven标签的前面 -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<!-- <property name="webBindingInitializer">
+	    	<bean class="com.olymtech.bs.freight.common.util.FreightWebBindingInitializer"></bean>
+	    </property> -->
+	    <property name="messageConverters">
+	        <list>
+	            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+	                <property name="supportedMediaTypes">
+	                    <list>
+	                        <value>text/html;charset=UTF-8</value>
+	                    </list>
+	                </property>
+	            </bean>
+	            <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+		            <property name="objectMapper">
+	                	<bean class="org.codehaus.jackson.map.ObjectMapper">
+	                    <property name="dateFormat">
+	                        <bean class="java.text.SimpleDateFormat">
+	                            <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss"/>
+	                        </bean>
+	                    </property>
+	                    <property name="serializationInclusion">
+								<value type="org.codehaus.jackson.map.annotate.JsonSerialize$Inclusion">NON_NULL</value>
+							</property>
+	                </bean>
+	            	</property>
+	            </bean>  
+	        </list>
+	    </property>
+	</bean>
+	
+	<!--定义异常处理页面-->
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.Exception">/404.html</prop>
+            </props>
+        </property>
+    </bean>
+	
+	<!-- 启用基于Spring MVC的注解功能 -->
+	<mvc:annotation-driven />
+
+ 	<!-- 这里拦截器还有一种配置方法【针对路径进行配置】 推荐使用这个，方便直观 -->
+	<!-- <mvc:interceptors>
+		<bean class="com.olymtech.bs.freight.common.util.LoginDataInterceptor"></bean>
+	</mvc:interceptors>  -->
+    <!-- <mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/permission/**"/>
+			<bean class="com.olymtech.serviceportal.ebooking.interceptor.PermissionInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors> -->
+
+	<!-- 
+		方式 一：对模型视图名称的解析，即在模型视图名称添加前后缀
+		InternalResourceViewResolver默认的就是JstlView所以这里就可以不用配置viewClass了
+	 -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+	    <property name="prefix" value="/view/" />
+	    <property name="suffix" value=".jsp" />
+	</bean>
+
+	<!--
+		4、 配置静态资源，直接映射到对应的文件夹，不被DispatcherServlet处理 
+		<mvc:resources mapping="/css/**" location="/css/"/> 
+		<mvc:resources mapping="/html/**" location="/html/"/>
+	-->
+	<mvc:resources mapping="/public/**" location="/public/" />
+	<mvc:resources mapping="/release/**" location="/release/" />
+	<mvc:resources mapping="/view/**" location="/view/" />
+	
+	<!--上传文件设置编码 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 一个类似懒加载的属性,为了在ctrl里面捕获异常，不想写全局的异常处理方法 -->
+		<property name="resolveLazily" value="true"/>  
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="maxUploadSize" value="20971520" />
+	</bean>
+	
+	 <bean id="qiushibaikeCrawl" class="com.shirman.crawler.service.QiushibaikeResolveService"></bean>
+  	<!-- 定义调用对象和调用对象的方法   --> 
+  	<task:scheduled-tasks>
+    <!-- 调用的类deletePicTimer    调用类中的方法deletePic   这里表示的是每天6点到23点每整点调用一次 -->
+    <task:scheduled ref="qiushibaikeCrawl" method="crawl" cron="0 0 6-23/2 * * *" />
+  	</task:scheduled-tasks> 
+
+</beans>

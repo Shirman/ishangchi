@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- 数据库驱动位置 -->
+	<classPathEntry location="D:/work/apache-tomcat-6.0.41/lib/mysql-connector-java-3.1.11.jar" />
+	
+	<context id="BaseDataTables" targetRuntime="MyBatis3">
+		<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+		<commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+		<!-- 数据库连接参数 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://www.ishangchi.cn:3306/keepeating?useUnicode=true&amp;characterEncoding=UTF-8" userId="root"
+			password="olymtech" />
+		<!--把JDBC DECIMAL 和  NUMERIC 类型解析为java.math.BigDecimal. (默认false，即把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer ) -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+		<!-- entity存放目录 -->
+		<javaModelGenerator targetPackage="com.shirman.keepeating.rest.entity" targetProject="keep-eating" />
+		<!-- mapper xml存放目录 -->
+		<sqlMapGenerator targetPackage="config.mappers" targetProject="keep-eating" />
+		<!-- mapper接口存放目录 
+		<javaClientGenerator targetPackage="com.olymtech.boss.crm.dao" targetProject="com.olymtech.boss.crm" type="XMLMAPPER" />
+		-->
+		<!--对应数据库表 mysql可以加入主键自增 字段命名 忽略某字段等
+		 -->
+		<table tableName="article"></table>
+
+		
+		
+	</context>
+</generatorConfiguration>
