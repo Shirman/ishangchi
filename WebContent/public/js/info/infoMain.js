@@ -14,6 +14,10 @@ $(function(){
 	 $("[data-icon='refresh']").click(function(){
 		 var pageNum = 1;
 		 var pageSize = 30;
+		 var loading = "<div  style='text-align:center' name='loading'><span ><img alt='加载中...'  src='/ishangchi/public/images/loading.gif'></span></div>";
+			if(!$("[name='loading']").length>0){
+				 $("div[data-role='header']").after(loading);
+			}
 		 $.ajax({
 			 url:"/ishangchi/rest/info/getArticles",
 			 type:"get",
@@ -21,6 +25,10 @@ $(function(){
 			 success:function(data){
 				 $("[data-role='content']").remove();
 				 generateHtml(data);
+			 },
+			 complete:function(){
+				 isLoading = false;
+				 $("[name='loading']").remove();
 			 }
 		 })
 	 
