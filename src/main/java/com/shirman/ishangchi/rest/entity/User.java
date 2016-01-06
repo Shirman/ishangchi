@@ -1,4 +1,4 @@
-package com.shirman.keepeating.rest.entity;
+package com.shirman.ishangchi.rest.entity;
 
 public class User {
 	

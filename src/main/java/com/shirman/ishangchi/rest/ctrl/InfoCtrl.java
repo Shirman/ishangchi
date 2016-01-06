@@ -1,4 +1,4 @@
-package com.shirman.keepeating.rest.ctrl;
+package com.shirman.ishangchi.rest.ctrl;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.github.pagehelper.PageInfo;
-import com.shirman.keepeating.common.util.RestResult;
-import com.shirman.keepeating.rest.entity.Article;
-import com.shirman.keepeating.rest.service.ArticleService;
+import com.shirman.ishangchi.common.util.RestResult;
+import com.shirman.ishangchi.rest.entity.Article;
+import com.shirman.ishangchi.rest.service.ArticleService;
 
 @Controller
 @RequestMapping(value="/info")

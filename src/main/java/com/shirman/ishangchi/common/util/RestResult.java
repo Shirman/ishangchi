@@ -7,7 +7,7 @@
  * @date 2015年1月29日
  * @version 1.0
  */
-package com.shirman.keepeating.common.util;
+package com.shirman.ishangchi.common.util;
 
 import java.io.Serializable;
 import java.util.HashMap;

@@ -1,8 +1,8 @@
-package com.shirman.keepeating.common.util;
+package com.shirman.ishangchi.common.util;
 
 import java.lang.reflect.Field;
 
-import com.shirman.keepeating.rest.entity.User;
+import com.shirman.ishangchi.rest.entity.User;
 
 public class StringUtil {
 	

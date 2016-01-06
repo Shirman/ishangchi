@@ -19,7 +19,7 @@
 		自动扫描组件，这里要把web下面的
 		controller去除，他们是在servlet-servlet.xml中配置的，如果不去除会影响事务管理的。
 	-->
-	<context:component-scan base-package="com.shirman.keepeating">
+	<context:component-scan base-package="com.shirman.ishangchi">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
@@ -39,14 +39,14 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:/config/sqlMapConfig.xml" />
 	<!-- 	自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
-		<property name="typeAliasesPackage" value="com.shirman.keepeating.rest.entity" />
+		<property name="typeAliasesPackage" value="com.shirman.ishangchi.rest.entity" />
 	<!-- 	显式指定Mapper文件位置 -->
 		<property name="mapperLocations" value="classpath:/config/mappers/*Mapper.xml" />
 	</bean>
 	
 		<!-- 扫描basePackage下所有以@Repository标识的 接口 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.shirman.keepeating.rest.dao" />
+		<property name="basePackage" value="com.shirman.ishangchi.rest.dao" />
 		<property name="annotationClass" value="org.springframework.stereotype.Repository"/>
 		<property name="sqlSessionFactoryBeanName" value="mybatisSqlSessionFactory" />
 	</bean>
@@ -57,17 +57,17 @@
 		是否自动回收超时连接：是   超时时间(以秒数为单位)：180s  -->
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<property name="driverClassName" value="${keepeating-jdbc.driver}" />
-		<property name="url" value="${keepeating-jdbc.url}" />
-		<property name="username" value="${keepeating-jdbc.username}" />
-		<property name="password" value="${keepeating-jdbc.password}" />
-		<property name="initialSize" value="${keepeating-jdbc.initialSize}"></property>
-		<property name="maxActive" value="${keepeating-jdbc.maxActive}"></property>
+		<property name="driverClassName" value="${ishangchi-jdbc.driver}" />
+		<property name="url" value="${ishangchi-jdbc.url}" />
+		<property name="username" value="${ishangchi-jdbc.username}" />
+		<property name="password" value="${ishangchi-jdbc.password}" />
+		<property name="initialSize" value="${ishangchi-jdbc.initialSize}"></property>
+		<property name="maxActive" value="${ishangchi-jdbc.maxActive}"></property>
 		
 		
-		<property name="minIdle" value="${keepeating-jdbc.minIdle}"></property>
-		<property name="maxIdle" value="${keepeating-jdbc.maxIdle}"></property>
-		<property name="maxWait" value="${keepeating-jdbc.maxWait}"></property>
+		<property name="minIdle" value="${ishangchi-jdbc.minIdle}"></property>
+		<property name="maxIdle" value="${ishangchi-jdbc.maxIdle}"></property>
+		<property name="maxWait" value="${ishangchi-jdbc.maxWait}"></property>
 		<property name="logAbandoned" value="true" ></property>
 		<property name="removeAbandoned" value="true" ></property>
 		<property name="removeAbandonedTimeout" value="180" ></property>
@@ -114,7 +114,7 @@
 
 	<!-- 配置哪些类的方法需要进行事务管理 -->
 	<aop:config>
-		<aop:pointcut id="allManagerMethod" expression="execution(* com.shirman.keepeating.*.*(..))" />
+		<aop:pointcut id="allManagerMethod" expression="execution(* com.shirman.ishangchi.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="allManagerMethod" />
 	</aop:config>
 </beans>

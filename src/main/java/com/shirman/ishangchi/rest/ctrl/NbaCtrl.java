@@ -1,4 +1,4 @@
-package com.shirman.keepeating.rest.ctrl;
+package com.shirman.ishangchi.rest.ctrl;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

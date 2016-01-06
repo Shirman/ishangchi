@@ -1,4 +1,4 @@
-package com.shirman.keepeating.rest.entity;
+package com.shirman.ishangchi.rest.entity;
 
 import java.util.Date;
 

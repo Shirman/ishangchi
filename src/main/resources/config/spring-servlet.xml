@@ -20,7 +20,7 @@
 		其他的在 applicationContext.xml 扫描 除去 类型是Controller的。
 		<context:component-scan base-package="mvc.ctrl" />扫描全部
 	-->
-	<context:component-scan base-package="com.shirman.keepeating.rest.ctrl" use-default-filters="false">
+	<context:component-scan base-package="com.shirman.ishangchi.rest.ctrl" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	

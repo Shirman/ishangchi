@@ -1,4 +1,4 @@
-package com.shirman.keepeating.rest.service;
+package com.shirman.ishangchi.rest.service;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.shirman.keepeating.rest.dao.ArticleDao;
-import com.shirman.keepeating.rest.entity.Article;
+import com.shirman.ishangchi.rest.dao.ArticleDao;
+import com.shirman.ishangchi.rest.entity.Article;
 
 @Service("articleService")
 public class ArticleService {

@@ -2,7 +2,6 @@ package com.shirman.crawler.resolve;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -14,7 +13,7 @@ import org.jsoup.select.Elements;
 import com.shirman.crawler.core.BaseResolve;
 import com.shirman.crawler.entity.ConnectionParams;
 import com.shirman.crawler.util.StringHelper;
-import com.shirman.keepeating.rest.entity.Article;
+import com.shirman.ishangchi.rest.entity.Article;
 
 /**
  * 

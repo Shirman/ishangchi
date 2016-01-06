@@ -15,7 +15,7 @@ $(function(){
 		 var pageNum = 1;
 		 var pageSize = 30;
 		 $.ajax({
-			 url:"/funny/rest/info/getArticles",
+			 url:"/ishangchi/rest/info/getArticles",
 			 type:"get",
 			 data:$.param({pageNum:pageNum,pageSize:pageSize}),
 			 success:function(data){
@@ -32,12 +32,12 @@ $(function(){
 	 function loadMore(){
 		 var pageNum = $('#pageNum').val()*1+1;
 		 var pageSize = 30;
-		 var loading = "<div  style='text-align:center' name='loading'><span ><img alt='加载中...'  src='/funny/public/images/loading.gif'></span></div>";
+		 var loading = "<div  style='text-align:center' name='loading'><span ><img alt='加载中...'  src='/ishangchi/public/images/loading.gif'></span></div>";
 		if(!$("[name='loading']").length>0){
 			 $("div[data-role='footer']").before(loading);
 		}
 		 $.ajax({
-			 url:"/funny/rest/info/getArticles",
+			 url:"/ishangchi/rest/info/getArticles",
 			 type:"get",
 			 data:$.param({pageNum:pageNum,pageSize:pageSize}),
 			 success:function(data){

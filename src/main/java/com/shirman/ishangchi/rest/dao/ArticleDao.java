@@ -1,12 +1,11 @@
-package com.shirman.keepeating.rest.dao;
+package com.shirman.ishangchi.rest.dao;
 
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
-import com.github.pagehelper.PageInfo;
-import com.shirman.keepeating.rest.entity.Article;
+import com.shirman.ishangchi.rest.entity.Article;
 
 @Repository
 public interface ArticleDao {

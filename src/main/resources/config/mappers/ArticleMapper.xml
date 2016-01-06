@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.shirman.keepeating.rest.dao.ArticleDao" >
-  <resultMap id="BaseResultMap" type="com.shirman.keepeating.rest.entity.Article" >
+<mapper namespace="com.shirman.ishangchi.rest.dao.ArticleDao" >
+  <resultMap id="BaseResultMap" type="com.shirman.ishangchi.rest.entity.Article" >
     <id column="main_id" property="mainId" jdbcType="INTEGER" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="author" property="author" jdbcType="VARCHAR" />
@@ -73,7 +73,7 @@
   <sql id="Base_Column_List" >
     main_id, title, author, content, create_time, modify_time, source, status, is_show
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shirman.keepeating.rest.entity.Article" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shirman.ishangchi.rest.entity.Article" >
     select
     <include refid="Base_Column_List" />
     from article
@@ -100,7 +100,7 @@
     delete from article
     where main_id = #{mainId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByArticle" parameterType="com.shirman.keepeating.rest.entity.Article" >
+  <delete id="deleteByArticle" parameterType="com.shirman.ishangchi.rest.entity.Article" >
     delete from article
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -118,7 +118,7 @@
       )
       </foreach>
   </insert>
-  <insert id="insertSelective" parameterType="com.shirman.keepeating.rest.entity.Article" >
+  <insert id="insertSelective" parameterType="com.shirman.ishangchi.rest.entity.Article" >
     insert into article
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="mainId != null" >
@@ -235,7 +235,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.shirman.keepeating.rest.entity.Article" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.shirman.ishangchi.rest.entity.Article" >
     update article
     <set >
       <if test="title != null" >
@@ -265,7 +265,7 @@
     </set>
     where main_id = #{mainId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.shirman.keepeating.rest.entity.Article" >
+  <update id="updateByPrimaryKey" parameterType="com.shirman.ishangchi.rest.entity.Article" >
     update article
     set title = #{title,jdbcType=VARCHAR},
       author = #{author,jdbcType=VARCHAR},

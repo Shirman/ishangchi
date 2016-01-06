@@ -18,7 +18,7 @@
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
 		<!-- entity存放目录 -->
-		<javaModelGenerator targetPackage="com.shirman.keepeating.rest.entity" targetProject="keep-eating" />
+		<javaModelGenerator targetPackage="com.shirman.ishangchi.rest.entity" targetProject="keep-eating" />
 		<!-- mapper xml存放目录 -->
 		<sqlMapGenerator targetPackage="config.mappers" targetProject="keep-eating" />
 		<!-- mapper接口存放目录 

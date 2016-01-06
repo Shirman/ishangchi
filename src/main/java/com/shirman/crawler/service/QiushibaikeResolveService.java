@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.shirman.crawler.entity.ConnectionParams;
 import com.shirman.crawler.resolve.QiushibaikeResolve;
-import com.shirman.keepeating.rest.dao.ArticleDao;
-import com.shirman.keepeating.rest.entity.Article;
+import com.shirman.ishangchi.rest.dao.ArticleDao;
+import com.shirman.ishangchi.rest.entity.Article;
 
 /**
  * 
