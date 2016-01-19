@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shirman.ishangchi.rest.dao.UserDao" >
+  <resultMap id="BaseResultMap" type="com.shirman.ishangchi.rest.entity.User" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="role" property="role" jdbcType="TINYINT" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="INTEGER" />
+    <result column="age" property="age" jdbcType="TINYINT" />
+    <result column="id_card" property="idCard" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, username, password, role, mobile, email, address, age, id_card, status
+  </sql>
+  <select id="selectUserByName" resultMap="BaseResultMap" parameterType="com.shirman.ishangchi.rest.entity.User" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where username = #{username}
+  </select>
+  <select id="selectUserById" resultMap="BaseResultMap" parameterType="com.shirman.ishangchi.rest.entity.User" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id}
+  </select>
+</mapper>
