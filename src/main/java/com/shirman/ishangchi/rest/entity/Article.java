@@ -3,7 +3,14 @@ package com.shirman.ishangchi.rest.entity;
 import java.util.Date;
 
 
-
+/**
+ * 
+ * @ClassName: Article 
+ * @Description: 
+ * @author Shirman
+ * @date 2016年1月13日 下午3:09:55 
+ * @version V1.0
+ */
 public class Article {
     private Integer mainId;
 

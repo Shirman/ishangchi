@@ -37,6 +37,32 @@ public class RestResult implements Serializable {
 	 * 默认错误消息
 	 */
 	public static final String RESULT_FAILURE_MSG = "系统繁忙，稍后重试！";
+	
+	/**
+	 * 登录错误消息
+	 */
+	public static final String RESULT_LOGIN_EMPTY_PASSWORD = "密码为空";
+	
+	/**
+	 * 登录错误消息
+	 */
+	public static final String RESULT_LOGIN_EMPTY_USERNAME = "用户名为空";
+	
+	/**
+	 * 登录错误消息
+	 */
+	public static final String RESULT_LOGIN_NOT_EXIT_USER = "用户不存在";
+	
+	/**
+	 * 登录错误消息
+	 */
+	public static final String RESULT_LOGIN_ERROR_PASSWORD = "密码错误";
+	
+	/**
+	 * 登录成功消息
+	 */
+	public static final String RESULT_LOGIN_SUCCESS = "登录成功";
+
 
 	private static final Map<Integer, String> RESULT_MSG_MAP = new HashMap<Integer, String>();
 	

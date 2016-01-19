@@ -1,6 +1,8 @@
 package com.shirman.ishangchi.common.util;
 
 import java.lang.reflect.Field;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import com.shirman.ishangchi.rest.entity.User;
 
@@ -78,7 +80,111 @@ public class StringUtil {
 	public static void main(String[] args) {
 		User user = new User();
 		replaceNullToEmpty(user);
-		System.out.println(user.isMan());
 	}
-
+	
+	/**
+	 * 
+	 * @author Shirman
+	 * @projectNo:
+	 * @date 2016年1月11日 上午11:18:38 
+	 * @param arry
+	 * @param joinKey
+	 * @return
+	 * @update 2016年1月11日 上午11:18:38 
+	 * <pre>
+	 *   将字符串数组拼接成由joinKey分割的一个字符串
+	 * <pre>
+	 */
+	public static String join(String[] arry,String joinKey){
+		StringBuffer sb = new StringBuffer();
+		for(int i = 0 ; i < arry.length ; i++){
+			sb.append(arry[i]);
+			if(StringUtil.isNotEmpty(joinKey) &&arry.length-i>1){//判断是否是最后一次循环
+				sb.append(joinKey);
+			}
+		}
+		return sb.toString();
+	}
+	/**
+	 * 
+	 * @author Shirman
+	 * @projectNo:
+	 * @date 2015年12月31日 上午9:47:57 
+	 * @param str
+	 * @return
+	 * @update 2015年12月31日 上午9:47:57 
+	 * <pre>
+	 *   判断字符串是否为null或者为空，符合条件返回true
+	 * <pre>
+	 */
+	public static boolean isEmpty(String str){
+		return str==null || str=="";
+	}
+	/**
+	 * 
+	 * @author Shirman
+	 * @projectNo:
+	 * @date 2015年12月31日 上午9:48:37 
+	 * @param str
+	 * @return
+	 * @update 2015年12月31日 上午9:48:37 
+	 * <pre>
+	 *   判断字符串是否不为null而且为空，符合条件返回true
+	 * <pre>
+	 */
+	public static boolean isNotEmpty(String str){
+		return str !=null && str != "";
+	}
+	
+	/**
+	 * 
+	 * @author Shirman
+	 * @projectNo:
+	 * @date 2016年1月11日 下午1:33:25 
+	 * @param strSrc
+	 * @return
+	 * @update 2016年1月11日 下午1:33:25 
+	 * <pre>
+	 *   sha1加密
+	 * <pre>
+	 */
+    public static String encrypt(String strSrc) {  
+        MessageDigest md = null;  
+        String strDes = null;  
+  
+        byte[] bt = strSrc.getBytes();  
+        try {  
+            md = MessageDigest.getInstance("SHA-1");  
+            md.update(bt);  
+            strDes = bytes2Hex(md.digest()); // to HexString  
+        } catch (NoSuchAlgorithmException e) {  
+            return "";  
+        }  
+        return strDes;  
+    }  
+  
+    /**
+     * 
+     * @author Shirman
+     * @projectNo:
+     * @date 2016年1月11日 下午1:36:38 
+     * @param bts
+     * @return
+     * @update 2016年1月11日 下午1:36:38 
+     * <pre>
+     *   转换成16进制的字符串
+     * <pre>
+     */
+    private static String bytes2Hex(byte[] bts) {  
+        String des = "";  
+        String tmp = null;  
+        for (int i = 0; i < bts.length; i++) {  
+            tmp = (Integer.toHexString(bts[i] & 0xFF));  
+            if (tmp.length() == 1) {  
+                des += "0";  
+            }  
+            des += tmp;  
+        }  
+        return des;  
+    }  
 }

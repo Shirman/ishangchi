@@ -28,6 +28,7 @@
 		<property name="locations">
 			<list>
 				<value>file:${catalina.home}/etc/db/jdbc.properties</value>
+				<value>file:${catalina.home}/etc/wx/signature.properties</value>
 			</list>
 		</property>
 	</bean>
@@ -117,4 +118,8 @@
 		<aop:pointcut id="allManagerMethod" expression="execution(* com.shirman.ishangchi.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="allManagerMethod" />
 	</aop:config>
+	
+	
+    <import resource="spring-config-cache.xml"/>
+    <import resource="spring-config-shiro.xml"/>
 </beans>

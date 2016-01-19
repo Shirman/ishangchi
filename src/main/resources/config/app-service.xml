@@ -10,13 +10,9 @@
 		
 	<!-- default-autowire="byName" default-lazy-init="false" 注意上面的default-autowire="byName"，如果没有这个声明不会被注入 -->
 
-	<description>keep-eating</description>
+	<description>ishangchi</description>
 	
-	<!-- 阿里云OSS存储 bean -->
- 	<!-- <bean id="aliyunStorage" class="com.olymtech.aliyun.client.oss.AliyunStorageImpl">
-		<property name="accessID" value="${oss.accessID}" />
-		<property name="accessKey" value="${oss.accessKey}" />
-		<property name="ossEndpoint" value="${oss.ossEndpoint}" />
-		<property name="bucketName" value="${oss.bucketName}" />
-	</bean> -->
+	<bean id="wechatSignature" class="com.shirman.ishangchi.weixin.service.SignatureService">
+		<property name="token" value="${wechat.token}" />
+	</bean>
 </beans>

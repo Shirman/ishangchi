@@ -11,22 +11,22 @@
         </commentGenerator>
 		<!-- 数据库连接参数 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://www.ishangchi.cn:3306/keepeating?useUnicode=true&amp;characterEncoding=UTF-8" userId="root"
+			connectionURL="jdbc:mysql://www.ishangchi.cn/ishangchi?useUnicode=true&amp;characterEncoding=UTF-8" userId="root"
 			password="olymtech" />
 		<!--把JDBC DECIMAL 和  NUMERIC 类型解析为java.math.BigDecimal. (默认false，即把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer ) -->
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
 		<!-- entity存放目录 -->
-		<javaModelGenerator targetPackage="com.shirman.ishangchi.rest.entity" targetProject="keep-eating" />
+		<javaModelGenerator targetPackage="com.shirman.ishangchi.rest.entity" targetProject="ishangchi" />
 		<!-- mapper xml存放目录 -->
-		<sqlMapGenerator targetPackage="config.mappers" targetProject="keep-eating" />
+		<sqlMapGenerator targetPackage="config.mappers" targetProject="ishangchi" />
 		<!-- mapper接口存放目录 
 		<javaClientGenerator targetPackage="com.olymtech.boss.crm.dao" targetProject="com.olymtech.boss.crm" type="XMLMAPPER" />
 		-->
 		<!--对应数据库表 mysql可以加入主键自增 字段命名 忽略某字段等
 		 -->
-		<table tableName="article"></table>
+		<table tableName="user"></table>
 
 		
 		

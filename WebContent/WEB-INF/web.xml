@@ -11,7 +11,7 @@
   </context-param>
   <context-param>
     <param-name>webAppRootKey</param-name>
-    <param-value>keep-eating.root</param-value>
+    <param-value>ishangchi.root</param-value>
   </context-param>
   <listener id="log4jConfigListener">
     <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
@@ -19,9 +19,10 @@
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
-  <listener>
-    <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
-  </listener>
+  <!-- 可以使用RequestContextHolder.currentRequestAttributes() 获取到请求的attr -->
+    <listener>
+     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
   <servlet>
     <servlet-name>springmvc</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -47,6 +48,21 @@
       <param-value>true</param-value>
     </init-param>
   </filter>
+   <!-- shiro 安全过滤器 -->
+    <filter>
+        <filter-name>shiroFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <async-supported>true</async-supported>
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>shiroFilter</filter-name>
+        <url-pattern>/rest/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
   <filter-mapping>
     <filter-name>Set Character Encoding</filter-name>
     <url-pattern>/*</url-pattern>

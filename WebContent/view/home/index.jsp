@@ -12,19 +12,21 @@
 </head> 
 <body>
  	<c:import url="../header.jsp"></c:import>
-	<div data-role="content" id="mainContent" style="padding:20px;text-align:center;">
+	<div data-role="content" id="mainContent" style="padding:20px;">
 	  <form method="post" action="demoform.asp">
       <div data-role="fieldcontain">
         <input type="text" name="username" id="username" placeholder="您的用户名" >       
         <input type="password" name="password" id="password" placeholder="请输入您的密码">
         <label for="isRemeber">记住密码</label>
-        <input type="radio" name="isRemeber" id="isRemeber" value="0">
-        <fieldset data-role="controlgroup" data-type="horizontal" >
-        <label for="rigist">注册</label>
-        <input type="radio" name="rigist" id="rigist" value="2">
-        <label for="login">登录</label>
-        <input type="radio" name="login" id="login" value="1">	
-      </fieldset>
+        <input type="radio" name="isRemeber" id="isRemeber" value="0" checked="checked">
+        
+        <div data-role="fieldcontain" style="text-align:left;">
+        <select name="switch" id="switch" data-role="slider" >
+          <option value="regist" >注册</option>
+          <option value="login" selected="selected">登录</option>
+        </select>
+      </div>
+       <input type="submit" data-inline="true" value="提交">
       </div>
     </form>
 	</div>
