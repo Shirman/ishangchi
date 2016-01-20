@@ -23,8 +23,9 @@ public class BaseCtrl {
 	 * <pre>
 	 */
 	protected User getCurrentUser(){
-		  User user = (User)SecurityUtils.getSubject().getPrincipal();
-		  User userDb = userService.getUserById(user);
+		  String  username = (String)SecurityUtils.getSubject().getPrincipal();
+		  User user = new User(username);
+		  User userDb = userService.getUserByName(user);
 		  return userDb;
 	}
 	

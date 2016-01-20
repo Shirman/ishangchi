@@ -55,7 +55,7 @@ public class DbRealm extends AuthorizingRealm{
 		if(userDb == null){
 			 throw new UnknownAccountException(); //用户不存在
 		}
-		return new SimpleAuthenticationInfo(userDb, password, username);
+		return new SimpleAuthenticationInfo(userDb.getUsername(), userDb.getPassword(), getName());
 	}
 
 	public UserDao getUserDao() {

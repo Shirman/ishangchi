@@ -24,8 +24,11 @@ public class LoginCtrl extends BaseCtrl{
 	@RequestMapping(value="/login",method=RequestMethod.GET)
 	public ModelAndView login(){
 		ModelAndView mv = new ModelAndView("home/login");
-//		User currentUser = getCurrentUser();
-//		mv.addObject(currentUser);
+		User currentUser = getCurrentUser();
+		if(currentUser!=null){
+			mv.addObject(currentUser);
+			mv.setViewName("home/index");
+		}
 		return mv;
 	}
 	

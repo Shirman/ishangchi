@@ -96,7 +96,7 @@
                 /rest/login = authc
                 /rest/logout = authc
                 /rest/authenticated = authc
-                /** = authc,authc
+                /** = anon
             </value>
         </property>
     </bean>
