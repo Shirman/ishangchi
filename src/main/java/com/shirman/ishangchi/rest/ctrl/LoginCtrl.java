@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.shirman.ishangchi.common.util.RestResult;
 import com.shirman.ishangchi.rest.entity.User;
 import com.shirman.ishangchi.rest.service.LoginService;
+import com.shirman.ishangchi.rest.service.UserService;
 
 @Controller
 public class LoginCtrl extends BaseCtrl{
@@ -17,12 +18,14 @@ public class LoginCtrl extends BaseCtrl{
 	@Resource
 	private LoginService loginService;
 	
+	@Resource
+	private UserService userService;
+	
 	@RequestMapping(value="/login",method=RequestMethod.GET)
 	public ModelAndView login(){
-		ModelAndView mv = new ModelAndView();
-		User currentUser = getCurrentUser();
-		mv.setViewName("home/login");
-		mv.addObject(currentUser);
+		ModelAndView mv = new ModelAndView("home/login");
+//		User currentUser = getCurrentUser();
+//		mv.addObject(currentUser);
 		return mv;
 	}
 	

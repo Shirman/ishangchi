@@ -13,7 +13,7 @@
 <body>
  	<c:import url="../header.jsp"></c:import>
 	<div data-role="content" id="mainContent" style="padding:20px;">
-	  <form method="post" action="demoform.asp">
+	  <form method="post" action="/ishangchi/rest/login">
       <div data-role="fieldcontain">
         <input type="text" name="username" id="username" placeholder="您的用户名" >       
         <input type="password" name="password" id="password" placeholder="请输入您的密码">

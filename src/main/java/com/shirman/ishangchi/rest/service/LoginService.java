@@ -51,12 +51,12 @@ public class LoginService {
 		 try {
 			 subject.login(token);
 	        } catch (UnknownAccountException e) {
-	            LOGGER.error("账号不存在"+e.getLocalizedMessage(), e);
+	            LOGGER.error("账号不存在", e);
 	            result.setResultMsg(RestResult.RESULT_LOGIN_NOT_EXIT_USER);
 	            result.setResultCode(RestResult.RESULT_FAILURE);
 	            return result;
 	        } catch (IncorrectCredentialsException e) {
-	            LOGGER.error("密码错误"+e.getLocalizedMessage(), e);
+	            LOGGER.error("密码错误", e);
 	            result.setResultMsg(RestResult.RESULT_LOGIN_ERROR_PASSWORD);
 	            result.setResultCode(RestResult.RESULT_FAILURE);
 	            return result;

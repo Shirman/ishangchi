@@ -9,7 +9,9 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
       
     <!-- Realm实现 -->
-    <bean id="userRealm" class="com.shirman.ishangchi.shiro.realm.DbRealm"/>
+    <bean id="dbRealm" class="com.shirman.ishangchi.shiro.realm.DbRealm">
+    	<property name="userDao" ref="userDao"/>
+    </bean>
 
     <!-- 会话ID生成器 -->
     <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>
@@ -60,7 +62,7 @@
 
     <!-- 安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-        <property name="realm" ref="userRealm"/>
+        <property name="realm" ref="dbRealm"/>
         <property name="sessionManager" ref="sessionManager"/>
         <property name="rememberMeManager" ref="rememberMeManager"/>
     </bean>
