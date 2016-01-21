@@ -6,10 +6,7 @@
 	<head> 
 	<title>心享</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<link rel="stylesheet" href="/ishangchi/release/jqueryMobile/jquery.mobile-1.4.0.min.css" />
-	<script src="/ishangchi/release/jquery/jquery-1.7.1.min.js"></script>
-	<script src="/ishangchi/release/jqueryMobile/jquery.mobile-1.4.0.min.js"></script>
-	<script src="/ishangchi/release/jqueryMobile/jquery.mobile.css.helper.js"></script>
+	<c:import url="../common_js.jsp"></c:import>
 	<script src="/ishangchi//public/js/info/infoMain.js"></script>
 </head> 
 <body>

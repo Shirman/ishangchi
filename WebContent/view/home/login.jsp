@@ -6,9 +6,7 @@
 	<head> 
 	<title>心享-登录</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<link rel="stylesheet" href="/ishangchi/release/jqueryMobile/jquery.mobile-1.4.0.min.css" />
-	<script src="/ishangchi/release/jquery/jquery-1.7.1.min.js"></script>
-	<script src="/ishangchi/release/jqueryMobile/jquery.mobile-1.4.0.min.js"></script>
+	<c:import url="../common_js.jsp"></c:import>
 </head> 
 <body>
  	<c:import url="../header.jsp"></c:import>
