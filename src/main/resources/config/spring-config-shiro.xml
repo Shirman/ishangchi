@@ -86,6 +86,8 @@
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
         <property name="loginUrl" value="/rest/login"/>
+        <property name="successUrl" value="/rest/index"/>
+        <property name="unauthorizedUrl" value="/rest/login"/>
         <property name="filters">
             <util:map>
                 <entry key="authc" value-ref="formAuthenticationFilter"/>

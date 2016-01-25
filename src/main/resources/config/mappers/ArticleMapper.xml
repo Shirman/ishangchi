@@ -11,6 +11,7 @@
     <result column="source" property="source" jdbcType="TINYINT" />
     <result column="status" property="status" jdbcType="TINYINT" />
     <result column="is_show" property="isShow" jdbcType="TINYINT" />
+    <result column="type" property="type" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Base_Column_List" >
     main_id, title, author, content, create_time, modify_time, source, status, is_show
@@ -21,21 +22,29 @@
     from article
     where title = #{title,jdbcType=VARCHAR}
   </select>
+  <select id="queryArticleByType" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from article
+    where type = #{type}
+  </select>
    <select id="queryArticle" resultMap="BaseResultMap" >
     select 
     <include refid="Base_Column_List" />
     from article
+    where type = #{type}
     order by main_id desc
   </select>
   <insert id="insertArticles" parameterType="java.util.List" useGeneratedKeys="true" keyColumn="main_id">
    	insert into article (main_id, title, author, 
       content, create_time, modify_time, 
-      source, status, is_show
+      source, status, is_show , type
       ) values
       <foreach collection="list" item="item" index="index" separator="," >
        (#{item.mainId,jdbcType=INTEGER}, #{item.title,jdbcType=VARCHAR}, #{item.author,jdbcType=VARCHAR}, 
       #{item.content,jdbcType=VARCHAR}, #{item.createTime}, #{item.modifyTime}, 
-      #{item.source,jdbcType=TINYINT}, #{item.status,jdbcType=TINYINT}, #{item.isShow,jdbcType=TINYINT}
+      #{item.source,jdbcType=TINYINT}, #{item.status,jdbcType=TINYINT}, #{item.isShow,jdbcType=TINYINT},
+      #{item.type}
       )
       </foreach>
   </insert>

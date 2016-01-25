@@ -7,7 +7,7 @@
 	<title>心享</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<c:import url="../common_js.jsp"></c:import>
-	<script src="/ishangchi//public/js/info/infoMain.js"></script>
+	<script src="/ishangchi/public/js/info/infoMain.js"></script>
 </head> 
 <body>
 	<input type="hidden" id="pageNum" value="1">

@@ -7,28 +7,22 @@
 	<title>心享</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<c:import url="../common_js.jsp"></c:import>
+	<script src="/ishangchi/public/js/home/index.js"></script>
 </head> 
 <body>
+	<input type="hidden" id="pageNum" value="1">
  	<c:import url="../header.jsp"></c:import>
-	<div data-role="content">
+ 	<c:forEach items="${ articles }" var="article">
+ 	<div data-role="content">
     	<ul data-role="listview" data-inset="true">
       		<li data-icon="false" data-theme="e">
-      		<p><b>Shirman</b></p>
-        	<div class="ui-li-desc ui-li-no-toe" >应怜屐齿印苍苔，小扣柴扉久不开。春色满园关不住，一枝红杏出墙来。</div>
-        	<p><span style="float:left;">赞</span>  <span style="float:right;">2016/01/20</span></p>
+      		<p><b>匿名</b></p>
+        	<div class="ui-li-desc ui-li-no-toe" >${article.content }</div>
+        	<p><span style="float:left;"></span>  <span style="float:right;">来自微信漂流瓶</span></p>
       		</li>
     	</ul>
   	</div>
-  	
-  	<div data-role="content">
-    	<ul data-role="listview" data-inset="true">
-      		<li data-icon="false" data-theme="e">
-      		<p><b>管理员</b></p>
-        	<div class="ui-li-desc ui-li-no-toe" >首页展示的是来自网友们的漂流瓶，漂流瓶可以通过关注微信号：weixiao_kuaile_1314</div>
-        	<p><span style="float:left;">赞</span>  <span style="float:right;">2016/01/20</span></p>
-      		</li>
-    	</ul>
-  	</div>
+ 	</c:forEach>
 	<c:import url="../footer.jsp"></c:import>
 </body>
 </html>

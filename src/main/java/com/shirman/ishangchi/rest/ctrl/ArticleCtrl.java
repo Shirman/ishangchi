@@ -10,7 +10,7 @@ import com.shirman.ishangchi.rest.service.ArticleService;
 
 @Controller
 @RequestMapping(value="/article")
-public class ArticleCtrl {
+public class ArticleCtrl extends BaseCtrl{
 	
 	@Resource
 	private ArticleService articleService;
@@ -18,6 +18,7 @@ public class ArticleCtrl {
 	@RequestMapping(value="/articleMain")
 	public ModelAndView index() {
 		ModelAndView modelAndView = new ModelAndView("article/article");
+		setCurrentUser(modelAndView);
 		return modelAndView;
 	}
 }

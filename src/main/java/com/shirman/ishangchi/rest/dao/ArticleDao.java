@@ -40,7 +40,24 @@ public interface ArticleDao {
 	 *  分页查询文章
 	 * <pre>
 	 */
-	List<Article> queryArticle(Integer pageNum, Integer pageSize);
+	List<Article> queryArticle(Integer type);
+	
+	/**
+	 * 
+	 * @author Shirman
+	 * @projectNo:
+	 * @date 2015年12月29日 下午5:34:52 
+	 * @param sortBy
+	 * @param sortColumn
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 * @update 2015年12月29日 下午5:34:52 
+	 * <pre>
+	 *  分页查询文章
+	 * <pre>
+	 */
+	List<Article> queryArticleByType(Integer type);
 	
 	/**
 	 * 

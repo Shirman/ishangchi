@@ -2,6 +2,8 @@ package com.shirman.ishangchi.rest.entity;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 /**
  * 
@@ -20,8 +22,9 @@ public class Article {
 
     private String content;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createTime;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date modifyTime;
 
     private Integer source;
@@ -29,6 +32,8 @@ public class Article {
     private Integer status;
 
     private Integer isShow;
+    
+    private Integer type;
 
     public Integer getMainId() {
         return mainId;
@@ -101,4 +106,12 @@ public class Article {
     public void setIsShow(Integer isShow) {
         this.isShow = isShow;
     }
+
+	public Integer getType() {
+		return type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
 }

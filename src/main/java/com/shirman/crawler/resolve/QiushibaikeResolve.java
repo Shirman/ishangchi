@@ -14,6 +14,7 @@ import com.shirman.crawler.core.BaseResolve;
 import com.shirman.crawler.entity.ConnectionParams;
 import com.shirman.crawler.util.StringHelper;
 import com.shirman.ishangchi.rest.entity.Article;
+import com.shirman.ishangchi.rest.entity.Contant;
 
 /**
  * 
@@ -56,6 +57,7 @@ public class QiushibaikeResolve extends BaseResolve {
 				article.setTitle("糗事百科");
 				article.setCreateTime(cal.getTime());
 				article.setModifyTime(cal.getTime());
+				article.setType(Contant.QIUSHIBAIKE);
 				articles.add(article);
 			}
 		}
