@@ -100,7 +100,7 @@ public class PushManageService {
 			}
 		} else if (type.equals("text")) { // 此为 文本信息
 			LOGGER.info("收到微信消息："+con);
-			returnStr = getBackXMLTypeText(toName, fromName, "漂流瓶：" + con+" 已经发出去啦^^ ");
+			returnStr = getBackXMLTypeText(toName, fromName, "漂流瓶：" + con+" 飘向深海…… 访问：http://www.ishangchi.cn/ishangchi 前往深海沙滩 ");
 			List<Article> articles = new ArrayList<Article>();
 			Article article = new Article();
 			article.setContent(con);
